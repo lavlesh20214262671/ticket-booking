@@ -1,0 +1,16 @@
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name TEXT UNIQUE NOT NULL,
+  email TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL
+);
+
+
+
+CREATE TABLE seats (
+  id SERIAL PRIMARY KEY,
+  row INTEGER NOT NULL,
+  col INTEGER NOT NULL,
+  is_booked BOOLEAN DEFAULT FALSE,
+  user_id INTEGER REFERENCES users(id)
+);
